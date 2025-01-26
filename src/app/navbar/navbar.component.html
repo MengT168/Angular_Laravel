@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Correct link for Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <!-- Correct script tag for Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery for Bootstrap dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-red navbar-dark fixed-top">
+        <div class="wrapper">
+          
+        </div>
+    <div class="container-fluid all-show">
+    <a class="navbar-brand" href="#">Penton <i class="fa fa-codepen"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/main/home" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/main/data" >Table Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/main/insert" >Insert</a>
+        </li>
+        <li *ngIf="userRole === 'admin'" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/main/manageNotAccessUser" >Manage User Access</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" routerLink="/main/about" >About Us</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Welcome, {{ userName }}({{userRole}})
+      </span>
+    </div>
+    </div>
+    </nav>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+</body>
+</html>

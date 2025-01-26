@@ -1,0 +1,25 @@
+<!-- manage-user.component.html -->
+<div class="container">
+    <h2>User not access Data</h2>
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">User ID</div>
+        <div class="col col-1">UserName</div>
+        <div class="col col-1">Email</div>
+        <div class="col col-1">Status</div>
+        <div class="col col-1">Created_At</div>
+        <div class="col col-1">Action</div>
+      </li>
+      <li class="table-row" *ngFor="let userData of User" style="padding: 20px;">
+        <div class="col col-1">{{ userData.id }}</div>
+        <div class="col col-1">{{ userData.name }}</div>
+        <div class="col col-1">{{ userData.email }}</div>
+        <div class="col col-1">{{ userData.status }}</div>
+        <div class="col col-1">{{ userData.created_at }}</div>
+        <div class="col col-1">
+          <button class="btn btn-primary"  (click)="OnAccess(userData.id)">Access</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
