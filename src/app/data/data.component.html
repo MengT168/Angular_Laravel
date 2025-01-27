@@ -1,21 +1,45 @@
 <div class="container">
   <h2>Brand Data</h2>
-  
-  <ul class="responsive-table" >
+  <ul class="responsive-table">
     <li class="table-header">
       <div class="col col-1">Brand ID</div>
       <div class="col col-1">Brand Name</div>
       <div class="col col-1">Author ID</div>
       <div class="col col-1">Created_At</div>
       <div class="col col-1">Updated_At</div>
+      <div class="col col-1" *ngIf="userRole==='admin'">Action</div>
     </li>
-    <li class="table-row" *ngFor="let brand of brandData" style="padding: 80px;" >
-      <div class="col col-1" >{{ brand.id }}</div>
-      <div class="col col-1" >{{ brand.brandName }}</div>
-      <div class="col col-1" >{{ brand.authorId }}</div>
-      <div class="col col-1" >{{ brand.created_at }}</div>
-      <div class="col col-1" >{{ brand.updated_at }}</div>
-      <!-- <div class="col col-1" >{{ brand.updated_at }}</div> -->
+    <li class="table-row" *ngFor="let brand of brandData" style="padding: 60px;">
+      <div class="col col-1">{{ brand.id }}</div>
+      <div class="col col-1">{{ brand.brandName }}</div>
+      <div class="col col-1">{{ brand.authorId }}</div>
+      <div class="col col-1">{{ brand.created_at }}</div>
+      <div class="col col-1">{{ brand.updated_at}}</div>
+      <div *ngIf="userRole==='admin'" class="col col-1" style="display: flex; justify-content: space-between; gap: 5px;">
+        <button (click)="openUpdateModal(brand)">Update</button>
+        <button (click)="onDelete(brand.id)">Delete</button>
+      </div>
     </li>
   </ul>
+
+  <!-- Update Brand Modal -->
+  <div class="modal fade" id="updateBrandModal" tabindex="-1" aria-labelledby="updateBrandModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateBrandModalLabel">Update Brand</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #updateForm="ngForm" (ngSubmit)="onUpdate()">
+            <div class="mb-3">
+              <label for="brandName" class="form-label">Brand Name</label>
+              <input type="text" class="form-control" id="brandName" name="brandName" [(ngModel)]="selectedBrand.brandName" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
