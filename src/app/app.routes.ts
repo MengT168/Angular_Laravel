@@ -10,6 +10,7 @@ import { AppMain } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { roleGuard } from './guards/role.guard';
+import { AppSidebar } from './sidebar/sidebar.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,7 +18,7 @@ export const routes: Routes = [
   { path: 'signup', component: RegisterComponent },
   { 
     path: 'main', 
-    component: AppNavbar, 
+    component: AppSidebar, 
     canActivate: [authGuard],
     children: [
       { path: 'home', component: AppHome },

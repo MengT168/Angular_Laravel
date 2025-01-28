@@ -1,77 +1,94 @@
 body {
-  font-family: 'lato', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
+
 .container {
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 h2 {
   font-size: 26px;
   margin: 20px 0;
   text-align: center;
-  small {
-    font-size: 0.5em;
-  }
 }
 
 .responsive-table {
-  li {
-    border-radius: 3px;
-    padding: 25px 30px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.table-header, .table-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: #f8f8f8;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.table-header {
+  background-color: #95A5A6;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+
+.table-row {
+  background-color: #ffffff;
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.1);
+}
+
+.table-row div {
+  flex-basis: 16.66%; /* 100% divided by 6 columns */
+}
+
+.table-row div[data-label]::before {
+  content: attr(data-label);
+  font-weight: bold;
+  display: none;
+  margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+  .table-header {
+    display: none;
+  }
+
+  .table-row {
+    flex-direction: column;
+    padding: 15px 10px;
+  }
+
+  .table-row div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
+    padding: 10px 0;
   }
-  .table-header {
-    background-color: #95A5A6;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+
+  .table-row div[data-label]::before {
+    display: block;
   }
-  .table-row {
-    background-color: #ffffff;
-    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
-  }
-  .col-1 {
-    flex-basis: 10%;
-  }
-  .col-2 {
-    flex-basis: 40%;
-  }
-  .col-3 {
-    flex-basis: 25%;
-  }
-  .col-4 {
-    flex-basis: 25%;
-  }
-  
-  @media all and (max-width: 767px) {
-    .table-header {
-      display: none;
-    }
-    
-    li {
-      display: block;
-    }
-    .col {
-      
-      flex-basis: 100%;
-      
-    }
-    .col {
-      display: flex;
-      padding: 10px 0;
-      &:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-      }
-    }
-  }
+}
+
+.btn {
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
 }

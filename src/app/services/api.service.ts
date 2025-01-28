@@ -21,6 +21,25 @@ export class ApiService {
     return this.http.get<any>(`${this.apiUrl}/get_brand`, { headers });
   }
 
+  getCar():Observable<any>{
+    const token = localStorage.getItem('auth_token');
+    const headers = new HttpHeaders ({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(`${this.apiUrl}/get_car`,{headers});
+  }
+
+  creatPosts(brandName: string): Observable<any> { 
+    const token = localStorage.getItem('auth_token');
+    const body = { brandName }; 
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(`${this.apiUrl}/creat_brand`, body, {headers});
+  }
+
   updateBrand(brandId: string, updatedData: { brandName: string }): Observable<any> {
     const token = localStorage.getItem('auth_token');
     const headers = new HttpHeaders({
@@ -59,4 +78,6 @@ export class ApiService {
     });
     return this.http.delete(`${this.apiUrl}/delete_brand/${userId}`, { headers });
   }
+
+
 }

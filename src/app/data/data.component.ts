@@ -17,7 +17,7 @@ import { Brand } from './brand.model';
 export class AppData implements OnInit {
   brandData: Brand[] = [];
   userRole: string | null = '';
-  selectedBrand: Brand = { id: '', brandName: '', authorId: '', created_at: '', updated_at: '' };
+  selectedBrand: Brand = { id: '', brandName: '', authorId: '', created_at: '', updated_at: '' }; 
 
   constructor(
     private apiService: ApiService,

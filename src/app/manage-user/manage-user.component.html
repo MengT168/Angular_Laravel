@@ -1,25 +1,23 @@
-<!-- manage-user.component.html -->
 <div class="container">
-    <h2>User not access Data</h2>
-    <ul class="responsive-table">
+  <h2>User Not Access Data</h2>
+  <ul class="responsive-table">
       <li class="table-header">
-        <div class="col col-1">User ID</div>
-        <div class="col col-1">UserName</div>
-        <div class="col col-1">Email</div>
-        <div class="col col-1">Status</div>
-        <div class="col col-1">Created_At</div>
-        <div class="col col-1">Action</div>
+          <div class="col col-1">User ID</div>
+          <div class="col col-2">Username</div>
+          <div class="col col-3">Email</div>
+          <div class="col col-4">Status</div>
+          <div class="col col-5">Created At</div>
+          <div class="col col-6">Action</div>
       </li>
-      <li class="table-row" *ngFor="let userData of User" style="padding: 20px;">
-        <div class="col col-1">{{ userData.id }}</div>
-        <div class="col col-1">{{ userData.name }}</div>
-        <div class="col col-1">{{ userData.email }}</div>
-        <div class="col col-1">{{ userData.status }}</div>
-        <div class="col col-1">{{ userData.created_at }}</div>
-        <div class="col col-1">
-          <button class="btn btn-primary"  (click)="OnAccess(userData.id)">Access</button>
-        </div>
+      <li class="table-row" *ngFor="let userData of User">
+          <div class="col col-1" data-label="User ID">{{ userData.id }}</div>
+          <div class="col col-2" data-label="Username">{{ userData.name }}</div>
+          <div class="col col-3" data-label="Email">{{ userData.email }}</div>
+          <div class="col col-4" data-label="Status">{{ userData.status }}</div>
+          <div class="col col-5" data-label="Created At">{{ userData.created_at }}</div>
+          <div class="col col-6" data-label="Action">
+              <button class="btn btn-primary" (click)="OnAccess(userData.id)">Access</button>
+          </div>
       </li>
-    </ul>
-  </div>
-  
+  </ul>
+</div>

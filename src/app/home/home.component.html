@@ -1,7 +1,19 @@
-<!-- src/app/home/home.component.html -->
-<div>
-    <h1>Welcome to the Home Page</h1>
-    
-    <button (click)="logout()">Logout</button>
-  </div>
-  
+<div class="container mt-4">
+    <h2>Cars Data</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let car of carData">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Car ID: {{ car.id }}</h5>
+                    <p class="card-text">Year: {{ car.year }}</p>
+                    <p class="card-text">Vin: {{ car.vin }}</p>
+                    <p class="card-text">Condition: {{ car.condition }}</p>
+                    <p class="card-text">Status: {{ car.status }}</p>
+                </div>
+                <div class="card-footer">
+                    <img [src]="getImageUrl(car.image)" alt="Car Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

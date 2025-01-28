@@ -3,21 +3,21 @@
   <ul class="responsive-table">
     <li class="table-header">
       <div class="col col-1">Brand ID</div>
-      <div class="col col-1">Brand Name</div>
-      <div class="col col-1">Author ID</div>
-      <div class="col col-1">Created_At</div>
-      <div class="col col-1">Updated_At</div>
-      <div class="col col-1" *ngIf="userRole==='admin'">Action</div>
+      <div class="col col-2">Brand Name</div>
+      <div class="col col-3">Author ID</div>
+      <div class="col col-4">Created_At</div>
+      <div class="col col-5">Updated_At</div>
+      <div class="col col-6" *ngIf="userRole==='admin'">Action</div>
     </li>
-    <li class="table-row" *ngFor="let brand of brandData" style="padding: 60px;">
-      <div class="col col-1">{{ brand.id }}</div>
-      <div class="col col-1">{{ brand.brandName }}</div>
-      <div class="col col-1">{{ brand.authorId }}</div>
-      <div class="col col-1">{{ brand.created_at }}</div>
-      <div class="col col-1">{{ brand.updated_at}}</div>
-      <div *ngIf="userRole==='admin'" class="col col-1" style="display: flex; justify-content: space-between; gap: 5px;">
-        <button (click)="openUpdateModal(brand)">Update</button>
-        <button (click)="onDelete(brand.id)">Delete</button>
+    <li class="table-row" *ngFor="let brand of brandData">
+      <div class="col col-1" data-label="Brand ID">{{ brand.id }}</div>
+      <div class="col col-2" data-label="Brand Name">{{ brand.brandName }}</div>
+      <div class="col col-3" data-label="Author ID">{{ brand.authorId }}</div>
+      <div class="col col-4" data-label="Created_At">{{ brand.created_at }}</div>
+      <div class="col col-5" data-label="Updated_At">{{ brand.updated_at }}</div>
+      <div class="col col-6" *ngIf="userRole==='admin'" data-label="Action" style="display: flex; justify-content: space-between; gap: 5px;">
+        <button (click)="openUpdateModal(brand)" class="btn btn-sm btn-warning">Update</button>
+        <button (click)="onDelete(brand.id)" class="btn btn-sm btn-danger">Delete</button>
       </div>
     </li>
   </ul>
